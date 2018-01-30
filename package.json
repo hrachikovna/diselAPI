@@ -29,6 +29,7 @@
     "pm2": "^2.9.3",
     "rimraf": "^2.6.1"
   },
+  "private": true,
   "engine": {
     "node": "*",
     "npm": "*"
