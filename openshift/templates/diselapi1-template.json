@@ -2,11 +2,11 @@
   "kind": "Template",
   "apiVersion": "v1",
   "metadata": {
-    "name": "diselapi",
+    "name": "diselapi1",
     "annotations": {
       "openshift.io/display-name": "disel api",
       "description": "Disel API",
-      "tags": "diselapi,nodejs,mongodb",
+      "tags": "diselapi1,nodejs,mongodb",
       "iconClass": "icon-nodejs",
       "template.openshift.io/long-description": "This template defines resources needed for the Disel API micro service",
       "template.openshift.io/provider-display-name": "Red Hat, Inc.",
@@ -15,7 +15,7 @@
   },
   "message": "The following service(s) have been created in your project: ${NAME}, ${DATABASE_SERVICE_NAME}.\n\n",
   "labels": {
-    "template": "diselapi"
+    "template": "diselapi1"
   },
   "objects": [
     {
@@ -161,7 +161,7 @@
             "imageChangeParams": {
               "automatic": true,
               "containerNames": [
-                "diselapi"
+                "diselapi1"
               ],
               "from": {
                 "kind": "ImageStreamTag",
@@ -187,7 +187,7 @@
           "spec": {
             "containers": [
               {
-                "name": "diselapi",
+                "name": "diselapi1",
                 "image": " ",
                 "ports": [
                   {
@@ -264,13 +264,13 @@
       "metadata": {
         "name": "${DATABASE_SERVICE_NAME}",
         "annotations": {
-          "description": "Exposes the diselapi database"
+          "description": "Exposes the diselapi1 database"
         }
       },
       "spec": {
         "ports": [
           {
-            "name": "diselapi",
+            "name": "diselapi1",
             "port": 27017,
             "targetPort": 27017
           }
@@ -417,7 +417,7 @@
       "displayName": "Name",
       "description": "The name assigned to all of the frontend objects defined in this template.",
       "required": true,
-      "value": "diselapi"
+      "value": "diselapi1"
     },
     {
       "name": "NAMESPACE",
