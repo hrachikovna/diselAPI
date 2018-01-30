@@ -6,7 +6,7 @@
     "annotations": {
       "openshift.io/display-name": "disel api",
       "description": "Disel API",
-      "tags": "diselAPI,nodejs,mongodb",
+      "tags": "diselapi,nodejs,mongodb",
       "iconClass": "icon-nodejs",
       "template.openshift.io/long-description": "This template defines resources needed for the Disel API micro service",
       "template.openshift.io/provider-display-name": "Red Hat, Inc.",
@@ -15,7 +15,7 @@
   },
   "message": "The following service(s) have been created in your project: ${NAME}, ${DATABASE_SERVICE_NAME}.\n\n",
   "labels": {
-    "template": "taxcalc"
+    "template": "diselapi"
   },
   "objects": [
     {
@@ -161,7 +161,7 @@
             "imageChangeParams": {
               "automatic": true,
               "containerNames": [
-                "diselAPI"
+                "diselapi"
               ],
               "from": {
                 "kind": "ImageStreamTag",
@@ -187,7 +187,7 @@
           "spec": {
             "containers": [
               {
-                "name": "diselAPI",
+                "name": "diselapi",
                 "image": " ",
                 "ports": [
                   {
@@ -264,13 +264,13 @@
       "metadata": {
         "name": "${DATABASE_SERVICE_NAME}",
         "annotations": {
-          "description": "Exposes the taxcalc database"
+          "description": "Exposes the diselapi database"
         }
       },
       "spec": {
         "ports": [
           {
-            "name": "diselAPI",
+            "name": "diselapi",
             "port": 27017,
             "targetPort": 27017
           }
@@ -417,7 +417,7 @@
       "displayName": "Name",
       "description": "The name assigned to all of the frontend objects defined in this template.",
       "required": true,
-      "value": "diselAPI"
+      "value": "diselapi"
     },
     {
       "name": "NAMESPACE",
@@ -481,7 +481,7 @@
       "name": "DATABASE_SERVICE_NAME",
       "displayName": "Database Service Name",
       "required": true,
-      "value": "taxcalcdb"
+      "value": "diseldb"
     },
     {
       "name": "DATABASE_USER",
