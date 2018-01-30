@@ -4,9 +4,10 @@
   "description": "API for application",
   "main": "server.js",
   "scripts": {
-    "build": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
-    "start": "npm run build && nodemon server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
+   // "build": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
+  //  "start": "npm run build && nodemon server.js"
+  //  "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Maria Tomeyan <maria.tomeyan70@gmail.com>",
   "license": "MIT",
