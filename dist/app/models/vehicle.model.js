@@ -6,6 +6,7 @@ var VehicleSchema = mongoose.Schema({
     name: String,
     companyId: String,
     fleetId: String,
+    branchId: String,
     serviceSchenduleId: String,
     categoryItemId: String,
     currentOdometer: String,

@@ -1,10 +1,12 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var morgan      = require('morgan');
-
+var hostname = os.hostname();
 var cors = require('cors');
+var mongoose = require('mongoose');
 // create express app
 var app = express();
+
 
 
 
@@ -14,16 +16,31 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 // use cors
 app.use(cors());
+var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
+    ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
 
+var mongoUser =  process.env.MONGODB_USER,
+    mongoDatabase = process.env.MONGODB_DATABASE,
+    mongoPassword = process.env.MONGODB_PASSWORD,
+    mongoHost = process.env.DISELDB_SERVICE_HOST,
+    mongoPort = process.env.DISELDB_SERVICE_PORT,
+    mongoURL = 'mongodb://';
+
+mongoURL += mongoUser + ':' + mongoPassword + '@';
+mongoURL += mongoHost + ':' +  mongoPort + '/' + mongoDatabase;
+
+mongoose.connect(mongoURL);
+
+var Transaction = require('./models/transaction');
 // use morgan to log requests to the console
 app.use(morgan('dev'));
 
 // Configuring the database
-var dbConfig = require('./config/database.config.js');
-var mongoose = require('mongoose');
+//var dbConfig = require('./config/database.config.js');
+
 var jwt    = require('jsonwebtoken');  // used to create, sign, and verify tokens
 
-mongoose.connect(dbConfig.url);
+//mongoose.connect(dbConfig.url);
 
 mongoose.connection.on('error', function() {
     console.log('Could not connect to the database. Exiting now...');

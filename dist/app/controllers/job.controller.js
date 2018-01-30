@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var Job = require('../models/job.model.js');
 
@@ -10,13 +10,14 @@ exports.create = function (req, res) {
     var newJob = req.body.data;
     var job = new Job({
         vehicleId: newJob.vehicleId,
+        fleetId: newJob.fleetId,
         companyId: newJob.companyId,
         jobName: newJob.jobName,
         description: newJob.description,
         startDate: newJob.startDate,
         estimatedCompletionDate: newJob.estimatedCompletionDate,
         endDate: newJob.endDate,
-        jobStatus: newJob.jobStatus,
+        jobStatus: 'new',
         isDel: false,
         jobType: newJob.jobType,
         labourCost: newJob.labourCost,

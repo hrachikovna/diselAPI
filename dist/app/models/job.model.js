@@ -5,6 +5,7 @@ var mongoose = require('mongoose');
 var JobSchema = mongoose.Schema({
     vehicleId: String,
     companyId: String,
+    fleetId: String,
     jobName: String,
     description: String,
     startDate: String,

@@ -4,13 +4,14 @@ var Vehcile = require('../models/vehicle.model.js');
 
 exports.create = function (req, res) {
     // Create and Save a new Note
-    if (!req.body.data.branch) {
+    if (!req.body.data.branchId) {
         res.status(400).send({ message: "Vehicle can not have empty field, please check your form." });
     }
     var data = req.body.data;
     var vehcile = new Vehcile({
         name: data.name,
         companyId: data.companyId,
+        branchId: data.branchId,
         fleetId: data.fleetId,
         serviceSchenduleId: data.serviceSchenduleId,
         categoryItemId: data.categoryItemId,
