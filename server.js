@@ -1,7 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var morgan      = require('morgan');
-var hostname = os.hostname();
+//var hostname = os.hostname();
 var cors = require('cors');
 var mongoose = require('mongoose');
 // create express app
@@ -31,7 +31,7 @@ mongoURL += mongoHost + ':' +  mongoPort + '/' + mongoDatabase;
 
 mongoose.connect(mongoURL);
 
-var Transaction = require('./models/transaction');
+
 // use morgan to log requests to the console
 app.use(morgan('dev'));
 
@@ -50,7 +50,7 @@ mongoose.connection.once('open', function() {
     console.log("Successfully connected to the database");
 });
 
-app.set('superSecret', dbConfig.secret); // secret variable
+app.set('superSecret', 'sdsddssdad'); // secret variable
 
 
 // define a simple route
@@ -97,8 +97,8 @@ require('./app/routes/job.routes.js')(app);
 require('./app/routes/vehicle.routes.js')(app);
 require('./app/routes/jobPart.routes.js')(app);
 require('./app/routes/serviceSchedule.routes.js')(app);
-
 // listen for requests
-app.listen(3000, function(){
-    console.log("Server is listening on port 3000");
-});
+app.listen(port, ip);
+console.log('nodejs server running on http://%s:%s', ip, port);
+
+
